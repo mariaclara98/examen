@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Detalles del Evento: {{ evento.nombre }}</h2>
+  
+  <p><strong>Fecha:</strong> {{ evento.fecha }}</p>
+  <p><strong>Descripción:</strong> {{ evento.descripcion }}</p>
+
+  <a href="{% url 'home' %}">Volver a la lista de eventos</a> |
+  <a href="{% url 'evento_update' evento.id %}">Editar</a> |
+  <a href="{% url 'evento_delete' evento.id %}">Eliminar</a>
+{% endblock %}

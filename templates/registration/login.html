@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load custom_filters %}
+{% block content %}
+  <h2>Iniciar Sesión</h2>
+  
+  <form method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="id_username" class="form-label">Nombre de Usuario</label>
+      {{ form.username|add_class:"form-control" }}
+      <div id="usernameHelp" class="form-text">Introduce tu nombre de usuario.</div>
+    </div>
+    
+    <div class="mb-3">
+      <label for="id_password" class="form-label">Contraseña</label>
+      {{ form.password|add_class:"form-control" }}
+    </div>
+
+    <button type="submit" class="btn btn-primary">Ingresar</button>
+  </form>
+
+  <p>¿No tienes una cuenta? <a href="{% url 'register' %}">Regístrate aquí</a>.</p>
+{% endblock %}
